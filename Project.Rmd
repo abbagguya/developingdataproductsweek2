@@ -1,0 +1,29 @@
+---
+title: "Baltimore!"
+author: "James Kim"
+date: "3/12/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE,message=FALSE)
+```
+
+##### James's pick of important places in Baltimore
+
+1. Johns Hopkins University
+2. Bloomberg School of Public Health at the Johns Hopkins University
+3. Oriole Park at Camden Yards, the home of the Baltimore Orioles
+4. Inner Harbor where the best seafood can be found!
+
+##### Explore them more by clicking on the numbers on the map!
+
+```{r map}
+require(leaflet)
+Baltimore.icons<-makeIcon(iconUrl=c("http://printablenumbers.org/1-50/green/printable_number_1.jpg","http://printablenumbers.org/1-50/green/printable_number_2.jpg","http://printablenumbers.org/1-50/green/printable_number_3.jpg","http://printablenumbers.org/1-50/green/printable_number_4.jpg"),iconWidth=20,iconHeight=20)
+
+Baltimore.sites<-c("<a href=https://www.jhu.edu><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Gilman_Hall%2C_Johns_Hopkins_University%2C_Baltimore%2C_MD.jpg/2560px-Gilman_Hall%2C_Johns_Hopkins_University%2C_Baltimore%2C_MD.jpg alt='Johns Hopkins University' width=136><br>Johns Hopkins University<br>Baltimore, MD 21218</a>","<a href=http://www.jhsph.edu><img src=http://www.jhsph.edu/sebin/r/p/BaltimoreWide.jpg alt='Bloomberg School of Public Health' width = 188><br>Bloomberg School of Public Health<br>615 N. Wolfe, Baltimore, MD 21205</a>","<a href=http://baltimore.org/photo-tour/camden-yards-and-baltimore-orioles><img src=https://s-media-cache-ak0.pinimg.com/originals/46/56/7a/46567ad7b6d6fc64d33e104fde3d1911.jpg alt='Orioles Park at Camden Yards' width=204><br>Orioles Park at Camden Yards<br>333 W. Camden, Baltimore, MD  21201</a>","<a href=http://baltimore.org/article/baltimore-inner-harbor><img src=http://www.oddballescapes.com/wp-content/uploads/2012/11/Baltimore-Harbor-628x420.jpg alt='Inner Harbor' width=149><br>Inner Harbor, Baltimore, MD</a>")
+markers<-data.frame(lat=c(39.330217,39.297974,39.283977,39.285924),lng=c(-76.620518,-76.59016739,-76.621683,-76.612085))
+(markers%>%leaflet()%>%addTiles()%>%addMarkers(icon=Baltimore.icons,popup=Baltimore.sites)%>%addCircleMarkers(radius=12,weight=5,opacity=1,color='green'))
+```
+
