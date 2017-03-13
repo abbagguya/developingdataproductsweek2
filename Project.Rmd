@@ -1,22 +1,25 @@
 ---
-title: "Baltimore!"
+title: "**Baltimore!**"
 author: "James Kim"
-date: "3/12/2017"
-output: html_document
+date: "March 12, 2017"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo=FALSE,message=FALSE)
 ```
 
-##### James's pick of important places in Baltimore
+##### **James's pick of important places in Baltimore**
 
 1. Johns Hopkins University
-2. Bloomberg School of Public Health at the Johns Hopkins University
-3. Oriole Park at Camden Yards, the home of the Baltimore Orioles
-4. Inner Harbor where the best seafood can be found!
+2. Bloomberg School of Public Health at Johns Hopkins University
+3. Oriole Park at Camden Yards for the Baltimore Orioles
+4. Baltimore Inner Harbor where the best seafood can be found!
 
-##### Explore them more including navigating to websites for the sites by clicking on the numbers on the map!
+**Explore more! Navigate to websites for the sites by clicking on the numbers on the map!**
 
 ```{r map}
 require(leaflet)
